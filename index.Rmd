@@ -1,7 +1,7 @@
 ---
 title: "Euro 2020 Soccer Player Birth Months"
 description: |
-  Welcome to the website. I hope you enjoy it!
+  Examining the birth months of soccer players from Euro 2020 
 site: distill::distill_website
 ---
 
@@ -28,7 +28,7 @@ x %>% mutate(date = parse_date(str_sub(value, 2, 11))) %>%
   mutate(month = parse_factor(raw_month, levels = month.name)) %>% 
   group_by(month) %>% 
   summarize(total = n()) %>% 
-  ggplot(mapping = aes(x=fct_rev(month), y=total, color = month)) + 
-  geom_col() + coord_flip() + labs(title = "Euro 2020 Soccer Player Birth Months", x="", y="Players Born", color="Month")
+  ggplot(mapping = aes(x=fct_rev(month), y=total, color = month, fill = month)) + 
+  geom_col() + coord_flip() + labs(title = "Euro 2020 Soccer Player Birth Months", x="", y="Players Born", color="Month", fill="Month")
 ```
 
